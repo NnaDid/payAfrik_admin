@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/payAfrik_admin/static/css/main.9e0f7d4f.chunk.css",
+    "main.js": "/payAfrik_admin/static/js/main.53956391.chunk.js",
+    "main.js.map": "/payAfrik_admin/static/js/main.53956391.chunk.js.map",
+    "runtime-main.js": "/payAfrik_admin/static/js/runtime-main.6c67aa8e.js",
+    "runtime-main.js.map": "/payAfrik_admin/static/js/runtime-main.6c67aa8e.js.map",
+    "static/js/2.37a3f54c.chunk.js": "/payAfrik_admin/static/js/2.37a3f54c.chunk.js",
+    "static/js/2.37a3f54c.chunk.js.map": "/payAfrik_admin/static/js/2.37a3f54c.chunk.js.map",
+    "index.html": "/payAfrik_admin/index.html",
+    "static/css/main.9e0f7d4f.chunk.css.map": "/payAfrik_admin/static/css/main.9e0f7d4f.chunk.css.map",
+    "static/js/2.37a3f54c.chunk.js.LICENSE.txt": "/payAfrik_admin/static/js/2.37a3f54c.chunk.js.LICENSE.txt",
+    "static/media/profile.77306a93.jpg": "/payAfrik_admin/static/media/profile.77306a93.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c67aa8e.js",
+    "static/js/2.37a3f54c.chunk.js",
+    "static/css/main.9e0f7d4f.chunk.css",
+    "static/js/main.53956391.chunk.js"
+  ]
+}
