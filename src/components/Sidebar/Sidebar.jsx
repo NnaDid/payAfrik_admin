@@ -11,7 +11,7 @@ function Sidebar() {
                       <h3 className="sedebarTitle">Dashboard</h3>
                         <ul className="sideBarList">
                             <li className="sidebarListItem active">
-                                 <Link>
+                                 <Link to="/">
                                   <LineStyle  className="sidebarIcon"/>
                                     Home
                                 </Link>
@@ -36,8 +36,11 @@ function Sidebar() {
                       <h3 className="sedebarTitle">Quick Menu</h3>
                         <ul className="sideBarList">
                             <li className="sidebarListItem">
-                                    <Person  className="sidebarIcon"/>
-                                    Users
+                                    <Link to ="/users">  
+                                      <Person  className="sidebarIcon"/>
+                                       Users 
+                                    </Link>
+
                             </li>
                             <li className="sidebarListItem">
                                     <Timeline className="sidebarIcon"/>
