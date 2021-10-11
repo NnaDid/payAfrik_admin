@@ -29,3 +29,9 @@
      color: red;
      cursor: pointer; 
 }
+
+.usersTitle{
+    margin: 20px 0 20px 0px;
+    text-decoration: underline;
+    width: 100%;
+}

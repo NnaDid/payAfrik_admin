@@ -6,14 +6,17 @@ import { BrowserRouter as Router, Switch,Route} from 'react-router-dom'
 import UserList from "./Pages/UserList/UserList";
 import User from "./Pages/User/User";
 import NewUser from "./Pages/User/NewUser";
+// import Login from "./Pages/Login";
 
 
 function App() {
   return (
     <Router className="App"> 
          <Topbar />
-         <div className="container">
+         <div className="container-fluid">
             <Sidebar />
+            {/* <Login/> */}
+            
             <Switch>
 
               <Route exact path="/">
@@ -21,6 +24,10 @@ function App() {
               </Route>
 
               <Route path="/users">
+                 <UserList />
+              </Route>
+
+              <Route path="./admin">
                  <UserList />
               </Route>
 

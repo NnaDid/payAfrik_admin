@@ -53,7 +53,8 @@ const columns = [
     }, 
   ];
     return (
-        <div className="userList" style={{ height: 400, width: '100%' }}>
+        <div className="userList" style={{ height: 400, width: '100%', margin:20}}>
+                <h1 className="usersTitle">Users</h1> 
            <DataGrid
                 rows={data}
                 columns={columns}

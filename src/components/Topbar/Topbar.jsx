@@ -1,9 +1,9 @@
 import React from 'react';
 import './topbar.css';
-import {NotificationsNone, Language, Settings} from '@material-ui/icons';
+import { Lock} from '@material-ui/icons';
 import Profile from '../../assets/profile.jpg';
 import Logo from '../../assets/logo.png'
-
+// NotificationsNone, Language, Settings,
 function Topbar() {
     return (
         <div className="topbar">
@@ -14,7 +14,7 @@ function Topbar() {
                     </span>
                 </div>
                 <div className="topRight"> 
-                        <div className="topbarIconContainer">
+                        {/* <div className="topbarIconContainer">
                              <NotificationsNone />
                              <span className="topIconBadge">2</span>
                         
@@ -22,10 +22,10 @@ function Topbar() {
                         <div className="topbarIconContainer">
                              <Language /> 
                              <span className="topIconBadge">2</span> 
-                        </div>
+                        </div> */}
 
                         <div className="topbarIconContainer">
-                             <Settings /> 
+                             <Lock className="logout"/> 
                        </div>
 
                         <img src={Profile} alt="" className="topAvartar" />

@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 function Sidebar() {
     return (
         <div className="sidebar">
-              <div className="sidebarWrapper">
-                  <div className="sideBarMenu">
+            <div className="sidebarWrapper">
+                 <div className="sideBarMenu">
                       <h3 className="sedebarTitle">Dashboard</h3>
                         <ul className="sideBarList">
                             <li className="sidebarListItem active">
@@ -43,20 +43,28 @@ function Sidebar() {
 
                             </li>
                             <li className="sidebarListItem">
-                                    <Timeline className="sidebarIcon"/>
+                                <Link to="/services">
+                                <Timeline className="sidebarIcon"/>
                                     Services
+                                </Link>
                             </li>
                             <li className="sidebarListItem">
-                                    <TransferWithinAStation className="sidebarIcon" />
+                                <Link to="/transactions">
+                                   <TransferWithinAStation className="sidebarIcon" />
                                     Transactions
+                                </Link>
                             </li>
                             <li className="sidebarListItem">
+                                <Link to="/billers">
                                     <PaymentSharp className="sidebarIcon"/>
                                     Billers
+                                </Link>
                             </li>
                             <li className="sidebarListItem">
-                                    <SettingsPower className="sidebarIcon"/>
+                                <Link to="/smartmeter">
+                                   <SettingsPower className="sidebarIcon"/>
                                     Smart Meter
+                                </Link>
                             </li>
                         </ul>
                   </div>
@@ -65,16 +73,22 @@ function Sidebar() {
                       <h3 className="sedebarTitle">Notification</h3>
                         <ul className="sideBarList">
                             <li className="sidebarListItem">
-                                    <Mail  className="sidebarIcon"/>
+                                <Link>
+                                  <Mail  className="sidebarIcon"/>
                                     Mail
+                                </Link>
                             </li>
                             <li className="sidebarListItem">
-                                    <Feedback className="sidebarIcon"/>
+                                <Link to="feedback">
+                                  <Feedback className="sidebarIcon"/>
                                     Feedback
+                                </Link>
                             </li>
                             <li className="sidebarListItem">
-                                    <MessageOutlined className="sidebarIcon" />
-                                    Support
+                                <Link to="/support">
+                                        <MessageOutlined className="sidebarIcon" />
+                                        Support
+                                </Link>
                             </li> 
                             <li className="sidebarListItem">
                                     <Archive className="sidebarIcon" />
@@ -87,21 +101,32 @@ function Sidebar() {
                       <h3 className="sedebarTitle">Staff</h3>
                         <ul className="sideBarList">
                             <li className="sidebarListItem">
+                                <Link to="/admin">
                                     <MarkunreadMailbox  className="sidebarIcon"/>
-                                    Manage
+                                     Admins
+                                </Link>
                             </li>
                             <li className="sidebarListItem">
+                                <Link to="/analytic">
                                     <Timeline className="sidebarIcon"/>
-                                    Analytics
+                                        Analytics
+                                </Link>
                             </li>
                             <li className="sidebarListItem">
-                                    <Report className="sidebarIcon" />
-                                    Reports
+                                    <Link to="/report">
+                                            <Report className="sidebarIcon" />
+                                            Reports
+                                    </Link>
                             </li> 
                         </ul>
                   </div>
  
               </div>
+
+           <div className="versionContainer">
+                <h2 className="version">PayAfrik Admin 1.0.0</h2>
+           </div>
+           
         </div>
     )
 }
