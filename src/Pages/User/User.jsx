@@ -1,9 +1,19 @@
 import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid, Publish } from '@material-ui/icons'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect} from 'react'
+import { Link } from 'react-router-dom' 
+// import axios from 'axios'
+
 import './User.css'
 
 function User() {
+// const baseURL = "https://apiv2.payafrik.io";
+
+ useEffect(() => {
+    console.log(process.env.BASE_URL)
+ }, [])
+
+   
+
     return (
         <div className="user">
             <div className="userTitleContainer">

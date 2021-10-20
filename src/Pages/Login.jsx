@@ -1,94 +1,92 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react"; 
+import { Grid, Paper, Button,Avatar,TextField,FormControlLabel,Checkbox } from '@material-ui/core'
+import LockOutlinedIcon from '@material-ui/icons//LockOutlined';
+import Logo from '../assets/logo.png'
 
-function Login() {
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [passwordError, setpasswordError] = useState("");
-  const [emailError, setemailError] = useState("");
+import { Formik, Form, Field, ErrorMessage} from 'formik'
+import * as Yup from 'yup'
 
-  const handleValidation = (event) => {
-    let formIsValid = true;
+function Login({ handleChange }) {
+  const propertyStyle = {padding:20, height:'70vh', width:350, margin:'50px auto', borderRadius:5}
+  const avatarStyle   = {backgroundColor:'#e3c007'}
+  const inputStyle    = {margin:'8px 0'}
 
-    if (!email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
-      formIsValid = false;
-      setemailError("Email Not Valid");
-      return false;
-    } else {
-      setemailError("");
-      formIsValid = true;
-    }
+  const initialValues = {
+    email_id:'',
+    password:'',
+    remember:false
+  }
 
-    if (!password.match(/^[a-zA-Z]{8,22}$/)) {
-      formIsValid = false;
-      setpasswordError(
-        "Only Letters and length must best min 8 Chracters and Max 22 Chracters"
-      );
-      return false;
-    } else {
-      setpasswordError("");
-      formIsValid = true;
-    }
+  const onSubmit = (values, props)=>{
+    setTimeout(()=>{ 
+      console.log(values)
+      props.resetForm()
+      props.setSubmitting(false)
+    },2000);
+  }
 
-    return formIsValid;
-  };
-
-  const loginSubmit = (e) => {
-    e.preventDefault();
-    handleValidation();
-  };
+  const validationSchema = Yup.object().shape({
+    email_id:Yup.string().email("Please enter valid email").required("required"),
+    password:Yup.string().required("Required"),
+  });
 
   return (
-    <div className="Login">
-      <div className="container">
-        <div className="row d-flex justify-content-center">
-          <div className="col-md-4">
-            <form id="loginform" onSubmit={loginSubmit}>
-              <div className="form-group">
-                <label>Email address</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="EmailInput"
-                  name="EmailInput"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter email"
-                  onChange={(event) => setEmail(event.target.value)}
-                />
-                <small id="emailHelp" className="text-danger form-text">
-                  {emailError}
-                </small>
-              </div>
-              <div className="form-group">
-                <label>Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="exampleInputPassword1"
-                  placeholder="Password"
-                  onChange={(event) => setPassword(event.target.value)}
-                />
-                <small id="passworderror" className="text-danger form-text">
-                  {passwordError}
-                </small>
-              </div>
-              <div className="form-group form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="exampleCheck1"
-                />
-                <label className="form-check-label">Check me out</label>
-              </div>
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </form>
-          </div>
-          
-        </div>
-      </div>
-    </div>
+    <Grid>
+      <Paper elevation ={10} style ={propertyStyle}>
+          <Grid align='center'>
+              <img src={Logo} />
+              <Avatar style={avatarStyle}> <LockOutlinedIcon />  </Avatar>
+              <h2> Admin Login</h2>
+          </Grid>
+         <Grid style={{margin:'0 14px'}}>
+            <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+                 
+              {
+                (props)=>(
+                  <Form>
+                       <Field
+                            as ={TextField}
+                            id="outlined-text"
+                            label="Admin Email ID"
+                            placeholder="Enter Eemail ID"
+                            fullWidth
+                            required
+                            style ={inputStyle}
+                            name ="email_id"
+                            helperText ={<ErrorMessage  name="email_id" />}
+                      />
+                        <Field
+                            as={TextField}
+                            id="outlined-textinput"
+                            label="Password"
+                            placeholder="Enter your password"
+                            fullWidth
+                            required
+                            style ={inputStyle} 
+                            type='password'
+                            name ="password"
+                            helperText ={<ErrorMessage  name="password" />}
+                      />
+                      <Field as ={FormControlLabel} 
+                        name="remember"
+                        control={
+                          <Checkbox  
+                            color='primary'
+                          />
+                        }
+                        label='Remember me'
+                      />
+                      <Button style ={inputStyle} type ='submit' 
+                              color='primary' disabled={props.isSubmitting}
+                              variant ='contained' fullWidth>{props.isSubmitting ? "Logging In ...":"SIGN IN"}</Button>
+                  </Form>
+                )
+              }
+
+            </Formik>
+         </Grid>
+      </Paper>
+  </Grid>
   );
 }
 export default Login;
