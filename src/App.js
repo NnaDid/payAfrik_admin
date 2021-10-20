@@ -11,15 +11,18 @@ import Login from "./Pages/Login";
 
 function App() {
    const isLoggedIn = false;
-  return (
-    <Router className="App"> 
-      <Login /> 
-            {/* <div> */}
-               {/* <Topbar /> */}
-               {/* <div className="container-fluid"> */}
-                  {/* <Sidebar />   */}
+   
+  return isLoggedIn ? ( 
+            <Login /> 
+          ):(  
+          <Router className="App"> 
+  
+            <div>
+               <Topbar />
+               <div className="container-fluid">
+                  <Sidebar />  
                   
-                  {/* <Switch>
+                  <Switch>
 
                   <Route exact path="/">
                      <Home />
@@ -41,12 +44,12 @@ function App() {
                      <NewUser />
                   </Route>
 
-                  </Switch> */}
+                  </Switch>
                
-               {/* </div> 
-            </div> */}
+               </div> 
+            </div>
          
-    </Router>
+         </Router>
   );
 }
 
