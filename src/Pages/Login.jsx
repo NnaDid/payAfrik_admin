@@ -1,10 +1,14 @@
 import React from "react"; 
-import { Grid, Paper, Button,Avatar,TextField,FormControlLabel,Checkbox } from '@material-ui/core'
+import { Grid, Paper, Button,Avatar,TextField} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons//LockOutlined';
 import Logo from '../assets/logo.png'
 
 import { Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
+
+import { getAminUserToken, setAdminUserSession} from '../components/utils/Common'
+import {getData} from '../components/utils/api'
+
 
 function Login({ handleChange }) {
   const propertyStyle = {padding:20, height:'70vh', width:350, margin:'50px auto', borderRadius:5}
@@ -12,21 +16,33 @@ function Login({ handleChange }) {
   const inputStyle    = {margin:'8px 0'}
 
   const initialValues = {
-    email_id:'',
+    email:'',
     password:'',
-    remember:false
   }
 
   const onSubmit = (values, props)=>{
     setTimeout(()=>{ 
-      console.log(values)
-      props.resetForm()
-      props.setSubmitting(false)
+      console.log(values) 
+
+      const token = getAminUserToken();
+      getData(values)
+          .then(resposne=>{
+              console.log(resposne);
+              setAdminUserSession(token,);
+              // accessToken
+              props.resetForm()
+              props.setSubmitting(false)
+
+        }).catch((err)=>{
+          props.setSubmitting(false)
+          console.log(err);
+        });
+      
     },2000);
   }
 
   const validationSchema = Yup.object().shape({
-    email_id:Yup.string().email("Please enter valid email").required("required"),
+    email:Yup.string().email("Please enter valid email").required("required"),
     password:Yup.string().required("Required"),
   });
 
@@ -52,8 +68,8 @@ function Login({ handleChange }) {
                             fullWidth
                             required
                             style ={inputStyle}
-                            name ="email_id"
-                            helperText ={<ErrorMessage  name="email_id" />}
+                            name ="email"
+                            helperText ={<ErrorMessage  name="email" />}
                       />
                         <Field
                             as={TextField}
@@ -67,15 +83,8 @@ function Login({ handleChange }) {
                             name ="password"
                             helperText ={<ErrorMessage  name="password" />}
                       />
-                      <Field as ={FormControlLabel} 
-                        name="remember"
-                        control={
-                          <Checkbox  
-                            color='primary'
-                          />
-                        }
-                        label='Remember me'
-                      />
+                      {/* <Field as ={FormControlLabel}   name="remember"  control={  <Checkbox color='primary'   />  }  label='Remember me' /> */}
+
                       <Button style ={inputStyle} type ='submit' 
                               color='primary' disabled={props.isSubmitting}
                               variant ='contained' fullWidth>{props.isSubmitting ? "Logging In ...":"SIGN IN"}</Button>

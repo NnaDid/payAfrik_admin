@@ -1,0 +1,3 @@
+// ADMIN TYPES
+export const AUTH_ADMIN_USER   = "AUTH_ADMIN_USER";
+export const LOGOUT_ADMIN_USER = "LOGOUT_ADMIN_USER";

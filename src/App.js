@@ -1,3 +1,5 @@
+
+import React ,{ useState } from 'react'
 import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
 import './app.css'
@@ -8,11 +10,14 @@ import User from "./Pages/User/User";
 import NewUser from "./Pages/User/NewUser";
 import Login from "./Pages/Login";
 
+import { getAminUserToken,getAdminUSer } from './components/utils/Common';
+
 
 function App() {
-   const isLoggedIn = false;
-   
-  return isLoggedIn ? ( 
+   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
+  return !isLoggedIn ? ( 
             <Login /> 
           ):(  
           <Router className="App"> 
