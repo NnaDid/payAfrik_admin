@@ -26,10 +26,15 @@ export const removeAdminUSerSesion =()=>{
      sessionStorage.removeItem("paf_ADMIN");
 }
 
+export const Logout = ()=>{
+    sessionStorage.clear();
+}
+
 export const isLoggedIn= ()=>{
-    if(getAminUserToken!==null || getAdminUSer!==null){ 
+    const Token = getAminUserToken();
+    const User  = getAdminUSer();
+    if (!(Token && User)){
         return false;
-    }else{
-        return true;
     }
+    return true;
 }
