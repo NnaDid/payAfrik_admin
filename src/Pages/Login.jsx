@@ -6,9 +6,11 @@ import Logo from '../assets/logo.png'
 import { Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 
-import { getAminUserToken, setAdminUserSession} from '../components/utils/Common'
-import {getData} from '../components/utils/api'
+import {setAdminUserSession} from '../components/utils/Common'
+import {getData} from '../components/utils/api' 
 
+import toast from 'toasted-notes' 
+import 'toasted-notes/src/styles.css';
 
 function Login({ handleChange }) {
   const propertyStyle = {padding:20, height:'70vh', width:350, margin:'50px auto', borderRadius:5}
@@ -23,19 +25,24 @@ function Login({ handleChange }) {
   const onSubmit = (values, props)=>{
     setTimeout(()=>{ 
       console.log(values) 
-
-      const token = getAminUserToken();
       getData(values)
           .then(resposne=>{
               console.log(resposne);
-              setAdminUserSession(token,);
-              // accessToken
+              const token = resposne.data.data.accessToken;
+              setAdminUserSession(token,values);
+              // redirect to hoem page
+               window.alert("Login Successfull")
+               setTimeout(()=>{
+                window.location.reload();
+               },1000);
               props.resetForm()
               props.setSubmitting(false)
 
         }).catch((err)=>{
           props.setSubmitting(false)
-          console.log(err);
+          console.log(err.code); 
+          console.log(err.message); 
+          console.log(err.status); 
         });
       
     },2000);

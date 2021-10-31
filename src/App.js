@@ -1,5 +1,6 @@
 
-import React ,{ useState } from 'react'
+import React ,{ useEffect, useState } from 'react'; 
+
 import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
 import './app.css'
@@ -10,25 +11,27 @@ import User from "./Pages/User/User";
 import NewUser from "./Pages/User/NewUser";
 import Login from "./Pages/Login";
 
-import { getAminUserToken,getAdminUSer } from './components/utils/Common';
+import { getAminUserToken,isLoggedIn} from './components/utils/Common';
 
 
 function App() {
-   const [isLoggedIn, setIsLoggedIn] = useState(false);
+   const [isActive, setIsActive] = useState(false);
+
+    useEffect(() => {
+      setIsActive(isLoggedIn())
+    }, [])
 
 
-  return !isLoggedIn ? ( 
+  return !isActive ? (  
             <Login /> 
           ):(  
           <Router className="App"> 
-  
             <div>
                <Topbar />
                <div className="container-fluid">
                   <Sidebar />  
                   
-                  <Switch>
-
+                  <Switch> 
                   <Route exact path="/">
                      <Home />
                   </Route>

@@ -9,7 +9,8 @@ export const getAdminUSer = ()=>{
 }
 
 export const getAminUserToken =()=>{
-    return sessionStorage.getItem("paf_ADMIN_AUTH_token");
+    const sess = sessionStorage.getItem("paf_ADMIN_AUTH_token");
+    return  JSON.parse(sess);
 }
 
 export const getAminRefreshToken =()=>{
@@ -17,7 +18,7 @@ export const getAminRefreshToken =()=>{
 }
 
 export const setAdminUserSession = (token, AdminUser)=>{
-    sessionStorage.setItem("paf_ADMIN_AUTH_token",token)
+    sessionStorage.setItem("paf_ADMIN_AUTH_token",JSON.stringify(token))
     sessionStorage.setItem("paf_ADMIN",JSON.stringify(AdminUser))
 }
 

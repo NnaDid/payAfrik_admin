@@ -8,14 +8,21 @@ const instance = axios.create({
 });
 
 
-const getData = (data) =>  instance({ 'method':'POST',  'url':'/sessions', data:data})
-
+const  getData = (data) =>  instance({ 'method':'POST',  'url':'/sessions', data:data})
 
 const  postData = (data) => instance({ 'method': 'POST', data})
 
+const  getAllUsers = (accessToken) =>  instance({ 
+    'method':'GET',  
+    'url':'/users/all?perPage=45',
+    'headers': {
+        "Authorization":"Bearer "+accessToken  
+    }
+})
 
 
-export { getData, postData }
+
+export { getData, postData ,getAllUsers}
 
 // 'url':'/query',
 // 'params': {
