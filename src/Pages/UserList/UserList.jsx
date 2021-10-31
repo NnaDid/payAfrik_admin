@@ -63,19 +63,45 @@ const columns = [
         
         <div className="userList" style={{ height: 400, width: '100%', margin:20}}>
            <h1 className="usersTitle">Users</h1>
-           {!data ? <CircularProgress /> : 
-                   <DataGrid
+           {!data ? <CircularProgress /> :  
+                <div>
+                    <table>
+                         {
+                             data.map((user)=>(
+                                 <tr>
+                                     <td>{user._id}</td>
+                                     <td>{user.accountType}</td>
+                                     <td>{user.name}</td>
+                                     <td>{user.email}</td>
+                                     <td>{user.phone}</td>
+                                     <td>{user.bvnVerified}</td>
+                                     <td>{user.confirmed}</td>
+                                     <td>{user.deactivated}</td>
+                                     {/* <td>{user.devices}</td>
+                                     <td>{user.paymentcards}</td> */}
+                                     <td>{user.otp}</td>
+                                     <td>{user.otpExpiry}</td>
+                                     <td>{user.smartMeterInterest}</td>
+                                     <td>{user.userCode}</td>
+                                     <td>{user.createdAt}</td>
+                                     <td>{user.updatedAt}</td>
+                                 </tr>
+                             ))
+                         }   
+                    </table>
+               </div>
+           }
+           
+
+         {/* <DataGrid
                     rows={data}
                     columns={columns}
                     pageSize={10}
                     rowsPerPageOptions={[5]}
                     disableSelectionOnClick
                     checkboxSelection
-                />
-               
-           }
-           
-           
+                />  
+         */}
 
         </div>
     )
