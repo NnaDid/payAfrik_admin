@@ -1,21 +1,24 @@
 {
   "files": {
     "main.css": "/payAfrik_admin/static/css/main.413945e9.chunk.css",
-    "main.js": "/payAfrik_admin/static/js/main.972465e0.chunk.js",
-    "main.js.map": "/payAfrik_admin/static/js/main.972465e0.chunk.js.map",
+    "main.js": "/payAfrik_admin/static/js/main.383b7bd8.chunk.js",
+    "main.js.map": "/payAfrik_admin/static/js/main.383b7bd8.chunk.js.map",
     "runtime-main.js": "/payAfrik_admin/static/js/runtime-main.6c67aa8e.js",
     "runtime-main.js.map": "/payAfrik_admin/static/js/runtime-main.6c67aa8e.js.map",
-    "static/js/2.3a45e5fd.chunk.js": "/payAfrik_admin/static/js/2.3a45e5fd.chunk.js",
-    "static/js/2.3a45e5fd.chunk.js.map": "/payAfrik_admin/static/js/2.3a45e5fd.chunk.js.map",
+    "static/css/2.0ebb20e9.chunk.css": "/payAfrik_admin/static/css/2.0ebb20e9.chunk.css",
+    "static/js/2.4d4d3d99.chunk.js": "/payAfrik_admin/static/js/2.4d4d3d99.chunk.js",
+    "static/js/2.4d4d3d99.chunk.js.map": "/payAfrik_admin/static/js/2.4d4d3d99.chunk.js.map",
     "index.html": "/payAfrik_admin/index.html",
+    "static/css/2.0ebb20e9.chunk.css.map": "/payAfrik_admin/static/css/2.0ebb20e9.chunk.css.map",
     "static/css/main.413945e9.chunk.css.map": "/payAfrik_admin/static/css/main.413945e9.chunk.css.map",
-    "static/js/2.3a45e5fd.chunk.js.LICENSE.txt": "/payAfrik_admin/static/js/2.3a45e5fd.chunk.js.LICENSE.txt",
+    "static/js/2.4d4d3d99.chunk.js.LICENSE.txt": "/payAfrik_admin/static/js/2.4d4d3d99.chunk.js.LICENSE.txt",
     "static/media/profile.77306a93.jpg": "/payAfrik_admin/static/media/profile.77306a93.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.6c67aa8e.js",
-    "static/js/2.3a45e5fd.chunk.js",
+    "static/css/2.0ebb20e9.chunk.css",
+    "static/js/2.4d4d3d99.chunk.js",
     "static/css/main.413945e9.chunk.css",
-    "static/js/main.972465e0.chunk.js"
+    "static/js/main.383b7bd8.chunk.js"
   ]
 }
